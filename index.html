@@ -1,0 +1,175 @@
+<!DOCTYPE html><html>  
+<head>  
+<title>SPSNI - Página de Configuração</title>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset=utf-8>  
+<link rel="stylesheet" href="style.css">
+<script>
+    function submitMessage() {
+      alert("Dados salvos com sucesso!");
+      setTimeout(function(){ document.location.reload(false); }, 500);   
+    }
+</script>
+</head>  
+<body>
+  <div class='container'>
+    <div class="bar-blue"></div>
+    <div class='titulo_principal'>
+        SPSNI - Sistema de Prioridade Seletiva Não Intrusiva
+    </div>
+    <div class='titulo_secundario'>
+        Página de Configuração do Sistema
+    </div>
+    <div class='identificador'>
+        1. Identificação do Controlador
+    </div>
+    <form action="/get" id="form" class="form" onSubmit={handleSubmit(onSubmit)}>
+        <label>Identificação Atual:
+        <label> Nova Identificação:
+        <input placeholder='Digite a identificação ...'/>
+        </label>
+        </label>
+        <button type='submit'> APLICAR </button>
+    </form>
+    <div class='identificador'>
+        2. Localização do laço virtual
+    </div>
+    <form action="/get" id="form2" class="form2" onSubmit={handleSubmit(onSubmit_second)}>
+        <label>Latitude atual:
+        <label>Nova Latitude:
+        <input placeholder='Digite a latitude ...'/>
+        </label>
+        </label>
+        <label>Longitude atual:
+        <label>Nova Longitude:
+        <input placeholder='Digite a longitude ...'/>
+        </label>
+        </label>
+        <label>Azimuth atual:
+        <label>Novo Azimuth:
+        <input placeholder='Digite o azimuth ...'/>
+        </label>
+        </label>
+        <label>Timestamp atual:
+        <label>Nova Timestamp:
+        <input placeholder='Digite o timestamp ...'/>
+        </label>
+        </label>
+        <button type='submit'> APLICAR </button>
+    </form>
+      <nav class="nav-menu">
+          <ul class='nav-menu-items'>
+            <div class="elementos">
+              <div class="items">
+                <img src="./imagens/home.svg" alt="Home">
+                <span class="txt-nav-bar">Home</span> 
+              </div>
+              <div class="items">
+                <img src="./imagens/report.svg" alt="Report">
+                <span class="txt-nav-bar">Reports</span>
+              </div>
+              <div class="items">
+                <img src="./imagens/product.svg" alt="">
+                <span class="txt-nav-bar">Products</span>
+              </div>
+                
+              <div class="items">
+                <img src="./imagens/team.svg" alt="">
+                <span class="txt-nav-bar">Team</span>
+              </div>
+                  
+              <div class="items">
+                <img src="./imagens/messages.svg" alt="">
+                <span class="txt-nav-bar">Messages</span>
+              </div>
+              <div class="items"> 
+                <img src="./imagens/support.svg" alt="">
+                <span class="txt-nav-bar">Support</span>
+              </div>
+              
+              
+              
+              
+             
+            </div>
+          </ul>
+      </nav>
+    <body/>
+  <!-- <div class="container">
+ <img class="imagem_logo" src="data:image/png;base64,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">
+
+<div class="header">SPSNI - Sistema de Prioridade Seletiva Não Intrusiva</div>
+<div class="header_secundario">Página de Configuração do Sistema</div>
+<div class="identificador">1. Identificação do Controlador</div>
+<hr>   
+
+  <form action="/get" target="hidden-form" id="form" class="form">
+    <div class="form_control error">
+      <label>Identificação atual:</label>
+      <BR>
+      <label for="indentificador">Nova identificação:</label>
+      <input type="text" name="inputID" id="indentificador" placeholder="Digite a identificação ...">
+      <i><img src="icons8-ok.svg" alt="Sucesso"></i>
+      <i><img src="icons8-cancelar.svg" alt="Erro"></i>
+      <small>Mensagem de erro</small>
+    </div>
+      <button type="submit" onclick="submitMessage()"">Aplicar</button>
+  </form>
+
+
+
+
+
+
+<BR>
+<div class="localizacao_laco">2. Localização do Laço Virtual </div> 
+
+
+  <form action="/get" target="hidden-form" id="form_laco" class="form_laco">
+    <div class="form_control_localizacao sucess">
+      <label>Latitude atual: </label>
+      <BR>
+      <label for="latitude">Latitude:</label> 
+      <input type="float" name="inputLatitude" id="latitude" placeholder="Digite a latidude ...">
+      <i class="success"><img src="icons8-ok.svg" alt="Sucesso"></i>
+      <i class="error"><img src="icons8-cancelar.svg" alt="Erro"></i>
+      <small>Mensagem de erro</small>
+      <BR>
+      <label>Longitude atual:</label> 
+      <BR>
+      <label for="longitude">Nova Longitude:</label> 
+      <input type="float" name="inputLongitude" id="longitude" placeholder="Digite a longitude ...">
+      <i><img src="icons8-ok.svg" alt="Sucesso"></i>
+      <i><img src="icons8-cancelar.svg" alt="Erro"></i>
+      <small>Mensagem de erro</small>
+      <BR>
+      <BR>
+      <label for="azimuth">Nova Azimuth: </label>
+      <input type="float" name="inputBearing" id="azimuth" placeholder="Digite o azimuth ...">
+      <i><img src="icons8-ok.svg" alt="Sucesso"></i>
+      <i><img src="icons8-cancelar.svg" alt="Erro"></i>
+      <small>Mensagem de erro</small>
+      <BR>
+      <label>Timestamp atual:</label>
+            <BR>
+      <label for="timestamp">Nova Timestamp:</label> 
+      <input type="int" name="timestamp" id="timestamp" placeholder="Digite o timestamp ...">
+      <i><img src="icons8-ok.svg" alt="Sucesso"></i>
+      <i><img src="icons8-cancelar.svg" alt="Erro"></i>
+      <small>Mensagem de erro</small>
+    </div>
+   
+    <button type="submit" onclick="submitMessage()"">Aplicar</button>
+  </form>  
+  </div>
+
+
+
+
+<hr>   
+<iframe style="display:none" name="hidden-form"></iframe>
+</body></html>
+</body></html>)rawliteral"; -->
+
+
+
